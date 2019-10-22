@@ -5,24 +5,26 @@ import UIKit
  2. (optional for extra bonus) Create a function that takes an integer and prints all prime numbers before this integer */
 
 //Creating a function that takes Int and returns if Number is Prime or not
-func returnIfPrime(number: Int) -> Bool { 
+func returnIfPrime(number: Int) -> Bool {
     
-    let notValidPrime = 1
-    let validPrime = 2
+    guard number != 1 else {
+            return false
+    }
     
-    guard number == notValidPrime else {
-        guard number == validPrime else {
-            for i in 2..<number {
-                if number % i == 0 {
-                    return false
-                }
-            }
-            return true
-        }
+    guard number != 2 else {
         return true
     }
-    return false
+    
+    for i in 2..<number {
+        if number % i == 0 {
+            return false
+        }
+    }
+    return true
 }
+
+print(returnIfPrime(number: 4))
+
 
 // Creating a funtion that takes Int and prints Prime Numbers befor Int
 func printPrimeNumbers(num: Int) {
