@@ -14,7 +14,8 @@ func detectPrimeNumber(number: Int) -> Bool {
     if number == 2 {
         return true
     }
-    for index in 2...number - 1 {
+    let lastPossibleNumb = Int(sqrt(Double(number)).rounded(.up))
+    for index in 2...lastPossibleNumb{
         if number % index == 0 {
             check = false
             break
