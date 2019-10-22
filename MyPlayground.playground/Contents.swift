@@ -5,17 +5,19 @@ import UIKit
  2. (optional for extra bonus) Create a function that takes an integer and prints all prime numbers before this integer */
 
 //Creating a function that takes Int and returns if Number is Prime or not
-func returnIfPrime(number: Int) -> Bool {    // Function finds numbers that can not be divided by 2 or 3, and creates exclusions
+func returnIfPrime(number: Int) -> Bool { 
     
-    let num: Int = number
-    let firstDivider: Int = 2
-    let secondDivider: Int = 3
-    let notValidPrime: Int = 1
+    let notValidPrime = 1
+    let validPrime = 2
     
-    guard num == notValidPrime else {     // Excluding '1' from results
-        if num % 2 == 0 && num != firstDivider
-            || num % 3 == 0 && num != secondDivider {    // Excluding numbers which can be divided by 2 but not equal 2
-            return false
+    guard number == notValidPrime else {
+        guard number == validPrime else {
+            for i in 2..<number {
+                if number % i == 0 {
+                    return false
+                }
+            }
+            return true
         }
         return true
     }
