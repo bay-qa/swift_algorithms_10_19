@@ -45,3 +45,76 @@ func printPrimeNumbers(number: Int){
 }
 printPrimeNumbers(number: 29)
 
+
+// 1. String palindrome
+
+// create a function that takes a string argument and returns boolean - is it palindrome or not. DO NOT use standard reverse methods in swift
+
+
+
+func isStringPalindrome (stringToCheck: String) -> Bool {
+    let charFromString:[Character] = Array(stringToCheck)
+    if charFromString.count == 1{
+        return true
+    }
+    if charFromString.count == 2 && charFromString[0] == charFromString[1]{
+        return true
+    }
+    if charFromString.count == 2 && charFromString[0] != charFromString[1]{
+        return false
+    }
+    
+    for index in 1...(charFromString.count-1)/2  {
+        if charFromString[index-1] != charFromString[charFromString.count-index]{
+            return false
+        }
+    }
+    return true
+}
+isStringPalindrome(stringToCheck: "htyfrirouorirfyth")
+
+
+// 2. Int palindrome
+
+// create a function that takes an integer argument and returns boolean - is it palindrome or not. DO NOT u
+
+
+func convertInt(myInt: Int)-> [Int]{
+    var temp = myInt
+    var intArray:[Int] = []
+    var index: Int = 0
+    
+    while temp != 0 {
+        intArray.insert(temp % 10, at: index)
+        temp = (temp - intArray[index])/10
+        index = index+1
+        
+        
+    }
+    
+    return intArray
+}
+
+convertInt(myInt: 237)
+
+func isIntPalindrome(intToCheck: Int) -> Bool {
+    let arrayFromInt = convertInt(myInt: intToCheck)
+    if arrayFromInt.count == 1{
+        return true
+    }
+    if arrayFromInt.count == 2 && arrayFromInt[0] == arrayFromInt[1]{
+        return true
+    }
+    if arrayFromInt.count == 2 && arrayFromInt[0] != arrayFromInt[1]{
+        return false
+    }
+    
+    for index in 1...(arrayFromInt.count-1)/2  {
+        if arrayFromInt[index-1] != arrayFromInt[arrayFromInt.count-index]{
+            return false
+        }
+    }
+    return true
+}
+
+isIntPalindrome(intToCheck: 123321)
