@@ -108,3 +108,43 @@ isIntegerpolindromeFunc(number: 9879)
 isStringpolindrome(text: "poprpop")
 isIntegerpolindromeFunc(number: 0)
 isStringpolindrome(text: "h")
+
+
+func isIntegerpolindromeFunc2(number: Int) -> Bool {
+    let array: Array = intToArray(integer: number)
+    let arrayReversed: Array = array.reversed()
+    print(array)
+    print(arrayReversed)
+    if array == arrayReversed {
+        return true
+    } else {
+        return false
+    }
+}
+func intToArray(integer: Int) -> [Int] {
+    var int = abs(integer)
+    var arrayInt: [Int] = []
+    arrayInt = [Int]()
+    arrayInt.append(int%10)
+    while int >= 10 {
+        int = int/10
+        arrayInt.insert(int%10, at: 0)
+    }
+ 
+    return arrayInt
+}
+intToArray(integer: 123)
+isIntegerpolindromeFunc2(number: 1)
+isIntegerpolindromeFunc2(number: 123)
+isIntegerpolindromeFunc2(number: 11111)
+isIntegerpolindromeFunc2(number: 1212)
+isIntegerpolindromeFunc2(number: 0)
+isIntegerpolindromeFunc2(number: -11)
+isIntegerpolindromeFunc2(number: -123)
+isIntegerpolindromeFunc2(number: -1111)
+isIntegerpolindromeFunc2(number: 9999)
+
+
+
+
+
