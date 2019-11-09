@@ -45,3 +45,66 @@ func printPrimeNumbers(number: Int){
 }
 printPrimeNumbers(number: 29)
 
+// HW#2
+
+
+// 1. String polindrome
+
+// create a function that takes a string argument and returns boolean - is it polindrome or not. DO NOT use standard reverse methods in swift
+
+// "abcdcba" => ture
+// "a" => true
+// "abcbe" => false
+
+
+// 2. Int polindrome
+
+// create a function that takes an integer argument and returns boolean - is it polindrome or not. DO NOT use Int to String casting.
+
+// 121 => true
+// 124 => false
+
+print("HW#2")
+
+func isStringpolindrome(text: String) -> Bool {
+    var anArray: [ Character ] = []
+    var mirrorOfAnAray: [ Character ] = []
+    for char in text {
+        anArray.insert(char, at: 0)
+    }
+    let arrayCount = anArray.count
+    print(arrayCount)
+    
+    for char in text {
+        mirrorOfAnAray.append(char)
+    }
+    print(anArray)
+    print(mirrorOfAnAray)
+    if anArray == mirrorOfAnAray {
+        return true
+    } else {
+        return false
+    }
+}
+
+func isIntegerpolindromeFunc(number: Int) -> Bool {
+    var intNumberToString = String(number)
+    if let cpecialCharacterIndex = intNumberToString.firstIndex(of: "-") {
+        intNumberToString.remove(at: cpecialCharacterIndex)
+    }
+    if isStringpolindrome(text: intNumberToString) == true {
+        return true
+    } else {
+        return false
+    }
+    
+}
+
+isIntegerpolindromeFunc(number: -99)
+isStringpolindrome(text: "bob")
+isIntegerpolindromeFunc(number: 999)
+isStringpolindrome(text: "abc")
+isIntegerpolindromeFunc(number: 9879)
+isStringpolindrome(text: "poprpop")
+isIntegerpolindromeFunc(number: 0)
+isStringpolindrome(text: "h")
