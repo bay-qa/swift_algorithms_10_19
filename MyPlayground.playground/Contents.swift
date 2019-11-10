@@ -66,7 +66,9 @@ printPrimeNumbers(number: 29)
 
 print("HW#2")
 
-func isStringpolindrome(text: String) -> Bool {
+print("isStringPolindrome")
+
+func isStringPolindrome(text: String) -> Bool {
     var anArray: [ Character ] = []
     var mirrorOfAnAray: [ Character ] = []
     for char in text {
@@ -87,40 +89,58 @@ func isStringpolindrome(text: String) -> Bool {
     }
 }
 
-func isIntegerpolindromeFunc(number: Int) -> Bool {
-    var intNumberToString = String(number)
-    if let cpecialCharacterIndex = intNumberToString.firstIndex(of: "-") {
-        intNumberToString.remove(at: cpecialCharacterIndex)
+isStringPolindrome(text: "abab")
+isStringPolindrome(text: "a")
+isStringPolindrome(text: "bbnn")
+isStringPolindrome(text: "bbbb")
+
+print("isIntegerPolindrome")
+
+func isIntegerPolindromeFunc(number: Int) -> Bool {
+    let array: Array = intToArray(integer: number)
+    print(array)
+    
+    let countOfAray:Int = Int(array.count)
+    let halfOfArray: Int = countOfAray / 2
+    print("need to find half of array \(array)")
+    var halfOfArray1: [Int] = []
+    var countAddedHalfOfArray1: Int = 0
+    var halfOfArray2: [Int] = []
+    var countAddedHalfOfArray2: Int = countOfAray
+    
+    repeat {
+        let eachNumberInArray: Int = array[countAddedHalfOfArray1]
+        halfOfArray1.append(eachNumberInArray)
+        countAddedHalfOfArray1 = countAddedHalfOfArray1 + 1
     }
-    if isStringpolindrome(text: intNumberToString) == true {
-        return true
+    while countAddedHalfOfArray1 < halfOfArray
+    print("halfOfArray1 \(halfOfArray1)")
+    
+    repeat {
+        let eachNumberInArray: Int = array[countAddedHalfOfArray2 - 1]
+        halfOfArray2.append(eachNumberInArray)
+        countAddedHalfOfArray2 = countAddedHalfOfArray2 - 1
+    }
+    while countAddedHalfOfArray2 > halfOfArray
+    print("halfOfArray2 \(halfOfArray2)")
+   
+    // need to remove first item from array 2 if array count is odd
+    if countOfAray%2 != 0 && halfOfArray2.count >= 2 {
+        //countOfAray odd
+        // need to remove first item from halfOfArray2
+        halfOfArray2.remove(at: halfOfArray2.count-1)
+        print("halfarray2 after removed first item \(halfOfArray2)")
     } else {
-        return false
+        //countOfArray even - do nothing
     }
     
-}
-
-isIntegerpolindromeFunc(number: -99)
-isStringpolindrome(text: "bob")
-isIntegerpolindromeFunc(number: 999)
-isStringpolindrome(text: "abc")
-isIntegerpolindromeFunc(number: 9879)
-isStringpolindrome(text: "poprpop")
-isIntegerpolindromeFunc(number: 0)
-isStringpolindrome(text: "h")
-
-
-func isIntegerpolindromeFunc2(number: Int) -> Bool {
-    let array: Array = intToArray(integer: number)
-    let arrayReversed: Array = array.reversed()
-    print(array)
-    print(arrayReversed)
-    if array == arrayReversed {
+    if halfOfArray1 == halfOfArray2 {
         return true
     } else {
         return false
     }
 }
+
 func intToArray(integer: Int) -> [Int] {
     var int = abs(integer)
     var arrayInt: [Int] = []
@@ -130,19 +150,23 @@ func intToArray(integer: Int) -> [Int] {
         int = int/10
         arrayInt.insert(int%10, at: 0)
     }
- 
     return arrayInt
 }
+
 intToArray(integer: 123)
-isIntegerpolindromeFunc2(number: 1)
-isIntegerpolindromeFunc2(number: 123)
-isIntegerpolindromeFunc2(number: 11111)
-isIntegerpolindromeFunc2(number: 1212)
-isIntegerpolindromeFunc2(number: 0)
-isIntegerpolindromeFunc2(number: -11)
-isIntegerpolindromeFunc2(number: -123)
-isIntegerpolindromeFunc2(number: -1111)
-isIntegerpolindromeFunc2(number: 9999)
+isIntegerPolindromeFunc(number: -111)
+isIntegerPolindromeFunc(number: 123)
+isIntegerPolindromeFunc(number: 11111)
+isIntegerPolindromeFunc(number: 1212)
+isIntegerPolindromeFunc(number: 0)
+isIntegerPolindromeFunc(number: -11)
+isIntegerPolindromeFunc(number: -123)
+isIntegerPolindromeFunc(number: 123454321)
+isIntegerPolindromeFunc(number: 1234574321)
+isIntegerPolindromeFunc(number: 9999)
+
+
+
 
 
 
